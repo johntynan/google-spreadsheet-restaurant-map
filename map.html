@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-<body>
 
-<!-- an attempt to update this file with svn mimetypes set -->
+<body onload="getLocation()">
 
 <!-- ++Begin GSpreadsheets Map Wizard Generated Code++ -->
 
@@ -13,6 +12,10 @@ sans-serif; font-size:11px; border:1px solid black">
     <td> <div id="cm_map" style="width:450px; height:450px"></div> </td>
   </tr> </tbody></table>
 </div>
+
+<br clear="all">
+
+<p id="info"></p>
 
 <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBriE3cgv5LHjYyO80qQ_TFmP8oKk85FTg" 
   type="text/javascript"></script>
@@ -157,8 +160,8 @@ function cm_loadMapJSON(json) {
     }
   }
 
-  cm_map.setZoom(cm_map.getBoundsZoomLevel(bounds));
-  cm_map.setCenter(bounds.getCenter());
+  // cm_map.setZoom(cm_map.getBoundsZoomLevel(bounds));
+  // cm_map.setCenter(bounds.getCenter());
 }
 
 /**
@@ -230,9 +233,33 @@ function cm_getJSON() {
 
 setTimeout('cm_load()', 500); 
 
+// begin code from w3school for obtaining current location using html5
+// http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
+
+var x=document.getElementById("info");
+
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;	
+  // alert(position.coords.latitude);
+  // alert(position.coords.longitude);
+  cm_map.setCenter(new GLatLng( position.coords.latitude, position.coords.longitude ), 15);
+  }
+
 //]]>
 
 </script>
+
+<button onclick="getLocation()">Center Map</button>
 
 </body>
 </html>
