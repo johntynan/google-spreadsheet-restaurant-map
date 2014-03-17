@@ -3,6 +3,51 @@
 
 <body onload="getLocation()">
 
+<!-- ++Begin Variable Passing Code from http://www.netlobo.com/url_query_string_javascript.html ++ -->
+
+<script type="text/javascript">
+//<![CDATA
+
+function gup( name )
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+
+}
+//]]>
+
+</script>
+
+<!-- ++Begin small script to set param_wsId ++ -->
+<script type="text/javascript">
+//<![CDATA
+
+// alert(gup( 'param_wsId' ));
+
+var param_wsId = gup( 'param_wsId' );
+
+if (param_wsId != "")
+  {
+  // alert(param_wsId);
+  }
+  else
+  {
+  param_wsId = "od6"
+  // alert(param_wsId);
+  }
+
+//]]>
+</script>
+
+
+<a href="map.html?param_wsId=od6">Restaurants</a> | <a href="map.html?param_wsId=od4">Hotels</a> | 
+
 <!-- ++Begin GSpreadsheets Map Wizard Generated Code++ -->
 
 <div style="width:575px; font-family:Arial, 
@@ -37,7 +82,8 @@ cm_baseIcon.infoWindowAnchor = new GPoint(9, 2);
 cm_baseIcon.infoShadowAnchor = new GPoint(18, 25);
 
 // Change these parameters to customize map
-var param_wsId = "od6";
+// var param_wsId = "od6";
+var param_wsId = param_wsId
 var param_ssKey = "0Arrv16mpemDHdFhMbHdFODlxdU8yMVI0UVBRNFk1WEE";
 var param_useSidebar = true;
 var param_titleColumn = "nameofrestaurant";
@@ -254,6 +300,8 @@ function showPosition(position)
   // alert(position.coords.longitude);
   cm_map.setCenter(new GLatLng( position.coords.latitude, position.coords.longitude ), 15);
   }
+
+
 
 //]]>
 
