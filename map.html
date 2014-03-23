@@ -3,19 +3,6 @@
 
 <body onload="getLocation()">
 
-<script type="text/javascript">
-//<![CDATA
-
-currentLatitude="";
-currentLongitude="";
-navigator.geolocation.getCurrentPosition(function(position) {currentLatitude=position.coords.latitude;currentLongitude=position.coords.longitude;});
-
-// alert(currentLatitude);
-// alert(currentLongitude);
-
-//]]>
-</script>
-
 <!-- ++Begin Variable Passing Code from http://www.netlobo.com/url_query_string_javascript.html ++ -->
 
 <script type="text/javascript">
@@ -191,9 +178,7 @@ function cm_loadMapJSON(json) {
         rank = parseInt(entry["gsx$"+param_rankColumn].$t);
       }
       if(entry["gsx$" + param_descriptionColumn]) {
-      // html += "<br/>" + entry["gsx$"+param_descriptionColumn].$t;
-      // html += "<br/>" + "<a href=\"http://maps.google.com/maps?saddr=&daddr=" + lat + "," + lng + "\">Directions</a> " + entry["gsx$"+param_descriptionColumn].$t;
-      html += "<br/>" + "<a href=\"http://maps.google.com/maps?saddr=" + currentLatitude + "," + currentLongitude + "&daddr=" + lat + "," + lng + "\">Directions</a> " + entry["gsx$"+param_descriptionColumn].$t;
+        html += "<br/>" + entry["gsx$"+param_descriptionColumn].$t;
       }
       html += "</div>";
 
