@@ -179,7 +179,7 @@ function cm_loadMapJSON(json) {
       }
       if(entry["gsx$" + param_descriptionColumn]) {
         // html += "<br/>" + entry["gsx$"+param_descriptionColumn].$t;
-        html += "<br/>" + "<a href=\"http://ditu.google.cn/maps?saddr=&daddr=" + lat + "," + lng + "\">Directions</a> " + entry["gsx$"+param_descriptionColumn].$t;
+        html += "<br/>" + "<a href=\"http://maps.google.com/maps?saddr=&daddr=" + lat + "," + lng + "\">Directions</a> " + entry["gsx$"+param_descriptionColumn].$t;
       }
       html += "</div>";
 
