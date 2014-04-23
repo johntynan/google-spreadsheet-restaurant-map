@@ -1,0 +1,19 @@
+body {
+  background: white;
+  font-family: "Times New Roman",Georgia,Serif;
+}
+
+.entry {
+  float: left;
+  width: 200px;
+  border: solid black 3px;
+  height: 500px;
+  padding: 30px;
+  margin: 30px;
+  background: white;
+  /* visibility: hidden; */
+}
+h2 {
+  font-size: 2em;
+  color: black;
+}
