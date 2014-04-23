@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+  <head>
+    <link href="./stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
 <body onload="getLocation()">
 
 <!-- ++Begin Variable Passing Code from http://www.netlobo.com/url_query_string_javascript.html ++ -->
@@ -58,10 +60,51 @@ sans-serif; font-size:11px; border:1px solid black">
   </tr> </tbody></table>
 </div>
 
-<br clear="all">
+   <br clear="all">
 
-<p id="info"></p>
+   <button onclick="getLocation()">Center Map</button>
+   <br clear="all" />
+   
+    <p id="info"></p>
 
+    <div id="content"></div>
+    
+    <script id="place-template" type="text/x-handlebars-template">
+      <div class="entry">
+        <h2>{{name}}</h2>
+        <h3>{{address}}</h3>
+        <div class="body">
+          {{{description}}}
+        </div>
+      </div>
+    </script>
+
+
+    <script type="text/javascript" src="handlebars.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="tabletop.js"></script>
+    <script type="text/javascript">
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0Arrv16mpemDHdFhMbHdFODlxdU8yMVI0UVBRNFk1WEE&output=html'; 
+
+      $(document).ready( function() {
+        Tabletop.init( { key: public_spreadsheet_url,
+                         callback: showInfo,
+                         parseNumbers: true } );
+      });
+        
+      function showInfo(data, tabletop) {
+        var source   = $("#place-template").html();
+        var template = Handlebars.compile(source);
+
+        $.each( tabletop.sheets("Published").all(), function(i, place) {
+          var html = template(place);
+          $("#content").append(html);
+        });
+      }
+      document.write("<br clear=\"all\" />")
+      document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");    
+    </script>      
+      
 <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBriE3cgv5LHjYyO80qQ_TFmP8oKk85FTg" 
   type="text/javascript"></script>
 
@@ -307,7 +350,7 @@ function showPosition(position)
 
 </script>
 
-<button onclick="getLocation()">Center Map</button>
+
 
 </body>
 </html>
