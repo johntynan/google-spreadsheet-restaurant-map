@@ -38,11 +38,16 @@ var param_wsId = gup( 'param_wsId' );
 if (param_wsId != "")
   {
   // alert(param_wsId);
+  // added snippet of script from http://stackoverflow.com/a/18759412/101739
+  // alert(parseInt((param_wsId^31578)).toString(36));
+  param_wsId = parseInt((param_wsId^31578)).toString(36);
   }
   else
   {
-  param_wsId = "od6"
+  // param_wsId = "od6"
+  param_wsId = "0"
   // alert(param_wsId);
+  param_wsId = parseInt((param_wsId^31578)).toString(36);
   }
 
 //]]>
@@ -51,20 +56,20 @@ if (param_wsId != "")
 <h1 align="center">Shenyang Expat Taxi Map / Book</h1>
 
 <h2 align="center">
-  | <a href="map.html?param_wsId=od6">Map View</a> | 
-  <a href="book.html?param_wsId=od6">Book View</a> | 
-  <a href="https://docs.google.com/forms/d/17POHdLC8DDOUfVrEXh5MsyWWBk9MG3BavzNkcRV55rc/viewform" target="_blank">Submit Place</a> | 
+  | <a href="map.html?param_wsId=0">Map View</a> | 
+  <a href="book.html?param_wsId=0">Book View</a> | 
+  <a href="https://docs.google.com/forms/d/17POHdLC8DDOUfVrEXh5MsyWWBk9MG3BavzNkcRV55rc/viewform" target="_blank">Submit Location</a> | 
 </h2>
 
 <h3 align="center">
-| <a href="book.html?param_wsId=od6">Restaurants & Bars</a> | 
-<a href="book.html?param_wsId=od4">Hotels</a> | 
-<a href="book.html?param_wsId=od4">General Information</a> | 
-<a href="book.html?param_wsId=od4">Groceries</a> | 
-<a href="book.html?param_wsId=od4">General Information</a> | 
-<a href="book.html?param_wsId=od4">Shopping</a> | 
-<a href="book.html?param_wsId=od4">Entertainment</a> | 
-<a href="book.html?param_wsId=od4">Sightseeing & Parks</a> | 
+| <a href="book.html?param_wsId=0">All Locations</a> | 
+<a href="book.html?param_wsId=11">Restaurants & Bars</a> | 
+<a href="book.html?param_wsId=13">Hotels</a> | 
+<a href="book.html?param_wsId=15">General Information</a> | 
+<a href="book.html?param_wsId=16">Groceries</a> | 
+<a href="book.html?param_wsId=17">Shopping</a> | 
+<a href="book.html?param_wsId=18">Entertainment</a> | 
+<a href="book.html?param_wsId=19">Sightseeing & Parks</a> | 
 </h3>
 
     <div id="content"></div>
