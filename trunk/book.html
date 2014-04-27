@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shenyang Expat Taxi Map / Book</title>
+    <link href="./stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+<body>
+
+<!-- ++Begin Variable Passing Code from http://www.netlobo.com/url_query_string_javascript.html ++ -->
+
+<script type="text/javascript">
+//<![CDATA
+
+function gup( name )
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+
+}
+//]]>
+
+</script>
+
+<!-- ++Begin small script to set param_wsId ++ -->
+<script type="text/javascript">
+//<![CDATA
+
+// alert(gup( 'param_wsId' ));
+
+var param_wsId = gup( 'param_wsId' );
+
+if (param_wsId != "")
+  {
+  // alert(param_wsId);
+  }
+  else
+  {
+  param_wsId = "od6"
+  // alert(param_wsId);
+  }
+
+//]]>
+</script>
+
+<h1 align="center">Shenyang Expat Taxi Map / Book</h1>
+
+<h2 align="center">
+  | <a href="map.html?param_wsId=od6">Map View</a> | 
+  <a href="book.html?param_wsId=od6">Book View</a> |   
+</h2>
+
+<div align="center">
+| <a href="book.html?param_wsId=od6">Restaurants & Bars</a> | 
+<a href="book.html?param_wsId=od4">Hotels</a> | 
+<a href="book.html?param_wsId=od4">General Information</a> | 
+<a href="book.html?param_wsId=od4">Groceries</a> | 
+<a href="book.html?param_wsId=od4">General Information</a> | 
+<a href="book.html?param_wsId=od4">Shopping</a> | 
+<a href="book.html?param_wsId=od4">Entertainment</a> | 
+<a href="book.html?param_wsId=od4">Sightseeing & Parks</a> | 
+</div>
+
+    <div id="content"></div>
+    
+    <script id="place-template" type="text/x-handlebars-template">
+      <div class="entry">
+        <h2>{{name}}</h2>
+        <h3>{{address}}</h3>
+        <div class="body">
+          {{{description}}}
+        </div>
+      </div>
+    </script>
+
+
+    <script type="text/javascript" src="handlebars.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="tabletop.js"></script>
+    <script type="text/javascript">
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0Arrv16mpemDHdFhMbHdFODlxdU8yMVI0UVBRNFk1WEE&output=html'; 
+
+      $(document).ready( function() {
+        Tabletop.init( { key: public_spreadsheet_url,
+                         callback: showInfo,
+                         parseNumbers: true } );
+      });
+        
+      function showInfo(data, tabletop) {
+        var source   = $("#place-template").html();
+        var template = Handlebars.compile(source);
+
+        $.each( tabletop.sheets("Published").all(), function(i, place) {
+          var html = template(place);
+          $("#content").append(html);
+        });
+      }
+      document.write("<br clear=\"all\" />")
+      document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");    
+    </script>
+
+
+</body>
+</html>

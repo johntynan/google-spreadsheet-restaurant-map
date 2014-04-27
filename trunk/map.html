@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Shenyang Expat Taxi Map</title>
     <link href="./stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
 <body onload="getLocation()">
@@ -47,11 +48,29 @@ if (param_wsId != "")
 //]]>
 </script>
 
+<h1 align="center">Shenyang Expat Taxi Map / Book</h1>
 
-<a href="map.html?param_wsId=od6">Restaurants</a> | <a href="map.html?param_wsId=od4">Hotels</a> | 
+<h2 align="center">
+  | <a href="map.html?param_wsId=od6">Map View</a> | 
+  <a href="book.html?param_wsId=od6">Book View</a> |   
+</h2>
+
+<div align="center">
+| <a href="map.html?param_wsId=od6">Restaurants & Bars</a> | 
+<a href="map.html?param_wsId=od4">Hotels</a> | 
+<a href="map.html?param_wsId=od4">General Information</a> | 
+<a href="map.html?param_wsId=od4">Groceries</a> | 
+<a href="map.html?param_wsId=od4">General Information</a> | 
+<a href="map.html?param_wsId=od4">Shopping</a> | 
+<a href="map.html?param_wsId=od4">Entertainment</a> | 
+<a href="map.html?param_wsId=od4">Sightseeing & Parks</a> | 
+</div>
 
 <!-- ++Begin GSpreadsheets Map Wizard Generated Code++ -->
 
+<div align="center">
+
+   
 <div style="width:575px; font-family:Arial, 
 sans-serif; font-size:11px; border:1px solid black">
   <table id="cm_mapTABLE"> <tbody> <tr id="cm_mapTR">
@@ -68,42 +87,8 @@ sans-serif; font-size:11px; border:1px solid black">
     <p id="info"></p>
 
     <div id="content"></div>
-    
-    <script id="place-template" type="text/x-handlebars-template">
-      <div class="entry">
-        <h2>{{name}}</h2>
-        <h3>{{address}}</h3>
-        <div class="body">
-          {{{description}}}
-        </div>
-      </div>
-    </script>
 
-
-    <script type="text/javascript" src="handlebars.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="tabletop.js"></script>
-    <script type="text/javascript">
-      var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0Arrv16mpemDHdFhMbHdFODlxdU8yMVI0UVBRNFk1WEE&output=html'; 
-
-      $(document).ready( function() {
-        Tabletop.init( { key: public_spreadsheet_url,
-                         callback: showInfo,
-                         parseNumbers: true } );
-      });
-        
-      function showInfo(data, tabletop) {
-        var source   = $("#place-template").html();
-        var template = Handlebars.compile(source);
-
-        $.each( tabletop.sheets("Published").all(), function(i, place) {
-          var html = template(place);
-          $("#content").append(html);
-        });
-      }
-      document.write("<br clear=\"all\" />")
-      document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");    
-    </script>      
+</div>
       
 <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBriE3cgv5LHjYyO80qQ_TFmP8oKk85FTg" 
   type="text/javascript"></script>
