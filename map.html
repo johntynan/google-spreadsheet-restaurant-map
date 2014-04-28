@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shenyang Expat Taxi Map</title>
+    <title>Shenyang Expat Taxi Book & Map</title>
     <link href="./stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
 <body onload="getLocation()">
@@ -53,11 +53,11 @@ if (param_wsId != "")
 //]]>
 </script>
 
-<h1 align="center">Shenyang Expat Taxi Map / Book</h1>
+<h1 align="center">Shenyang Expat Taxi Book & Map</h1>
 
 <h2 align="center">
   | <a href="map.html?param_wsId=0">Map View</a> | 
-  <a href="book.html?param_wsId=0">Book View</a> | 
+  <a href="book.html?param_wsId=Published">Book View</a> | 
   <a href="https://docs.google.com/forms/d/17POHdLC8DDOUfVrEXh5MsyWWBk9MG3BavzNkcRV55rc/viewform" target="_blank">Submit Location</a> | 
 </h2>
 
@@ -87,7 +87,7 @@ sans-serif; font-size:11px; border:1px solid black">
 
    <br clear="all">
 
-   <button onclick="getLocation()">Center Map</button>
+   <button onclick="getLocation()">Get Current Location</button>
    <br clear="all" />
    
     <p id="info"></p>
