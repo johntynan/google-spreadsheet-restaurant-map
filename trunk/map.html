@@ -53,6 +53,7 @@ if (param_wsId != "")
 //]]>
 </script>
 
+
 <h1 align="center">Shenyang Expat Taxi Book & Map</h1>
 
 <h2 align="center">
@@ -62,21 +63,55 @@ if (param_wsId != "")
 </h2>
 
 <h3 align="center">
-| <a href="map.html?param_wsId=0">All Locations</a> | 
+<a href="map.html?param_wsId=0">All Locations</a> | 
 <a href="map.html?param_wsId=11">Restaurants & Bars</a> | 
 <a href="map.html?param_wsId=13">Hotels</a> | 
 <a href="map.html?param_wsId=15">General Information</a> | 
 <a href="map.html?param_wsId=16">Groceries</a> | 
 <a href="map.html?param_wsId=17">Shopping</a> | 
 <a href="map.html?param_wsId=18">Entertainment</a> | 
-<a href="map.html?param_wsId=19">Sightseeing & Parks</a> | 
+<a href="map.html?param_wsId=19">Sightseeing & Parks</a>
 </h3>
 
 <h3 align="center">
-By District: | <a href="map.html?param_wsId=20">Heping</a> | 
-<a href="map.html?param_wsId=21">Dadong</a> | 
-<a href="map.html?param_wsId=22">Shenbei</a> | 
-<a href="map.html?param_wsId=23">Tiexi</a> | 
+<a href="map.html?param_wsId=0">All Restaurants & Bars</a> : 
+
+<select onchange="if (this.value) window.location.href=this.value">
+    <option value="" selected>Restaurants by Services</option>
+    <option value="">Delivery</option>
+    <option value="">Take-out</option>
+    <option value="">Catering</option>
+    <option value="">Beer selection</option>
+    <option value="">Wine selection</option>
+    <option value="">Cocktails</option>
+</select>    
+<select onchange="if (this.value) window.location.href=this.value">
+    <option value="" selected>Restaurants by Cuisine</option>
+    <option value="map.html?param_wsId=27">Chinese</option>
+    <option value="map.html?param_wsId=26">Western</option>
+    <option value="">Japanese</option>
+    <option value="">Korean</option>
+    <option value="map.html?param_wsId=28">Coffee / Tea</option>    
+    <option value="">Fast-food</option>
+</select>
+ |
+<select onchange="if (this.value) window.location.href=this.value">
+    <option value="" selected>Locations by District / County</option>
+    <option value="">Shenhe</option>
+    <option value="book.html?param_wsId=20">Heping</option>
+    <option value="book.html?param_wsId=21">Dadong</option>
+    <option value="">Huanggu</option>
+    <option value="book.html?param_wsId=23">Tiexi</option>
+    <option value="">Sujiatun</option>
+    <option value="">Dongling</option>
+    <option value="book.html?param_wsId=22">Shenbei</option>
+    <option value="">Yuhong</option>
+    <option value="">Xinmin</option>
+    <option value="">Liaozhong</option>
+    <option value="">Kangping</option>
+    <option value="">Faku</option>
+</select>
+
 </h3>
 
 <!-- ++Begin GSpreadsheets Map Wizard Generated Code++ -->
@@ -347,8 +382,6 @@ function showPosition(position)
 //]]>
 
 </script>
-
-
 
 </body>
 </html>
