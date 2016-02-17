@@ -461,7 +461,7 @@
       return array;
     }
   };
-
+ 
   if(inNodeJS) {
     module.exports = Tabletop;
   } else {
